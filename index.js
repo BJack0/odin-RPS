@@ -3,36 +3,65 @@ console.log("Hello World!")
 // Function returns an integer between 0 - 2
 // Function Converts integer into a playable hand
 
-function getComputerChoice() {
-  let computerHand = Math.floor(Math.random() * 3)
+let computerHand
 
+function getComputerChoice() {
+  computerHand = Math.floor(Math.random() * 3)
+  console.log(computerHand)
   if (computerHand === 0) {
-    let computerHand = "rock"
-    return computerHand
+    computerHand = "rock"
+    console.log(computerHand)
   } else if (computerHand === 1) {
-    let computerHand = "paper"
-    return computerHand
+    computerHand = "paper"
+    console.log(computerHand)
   } else if (computerHand === 2) {
-    let computerHand = "scissors"
-    return computerHand
+    computerHand = "scissors"
+    console.log(computerHand)
   }
+  return computerHand
 }
 
 getComputerChoice()
+console.log("Computer has chosen " + computerHand)
 
 // Function will ask player for hand
 
-function getPlayerChoice() {
-  let playerHand = prompt("Please enter your hand.")
+let playerHand = prompt("Please enter your hand.").toLowerCase()
 
-  if (playerHand.toLowerCase() === "rock") {
-    return playerHand.toLowerCase()
-  } else if (playerHand.toLowerCase() === "paper") {
-    return playerHand.toLowerCase()
-  } else if (playerHand.toLowerCase() === "scissors") {
-    return playerHand.toLowerCase()
+function getPlayerChoice() {
+  if (playerHand === "rock") {
+    console.log(playerHand)
+  } else if (playerHand === "paper") {
+    console.log(playerHand)
+  } else if (playerHand === "scissors") {
+    console.log(playerHand)
   } else {
+    console.log(playerHand)
     alert("Please enter a valid hand.")
     getPlayerChoice()
   }
+  return playerHand
 }
+
+getPlayerChoice()
+console.log("Player has chosen " + playerHand)
+
+// Function will play one round and compare hands
+
+/*
+
+function playRound(computerHand, playerHand) {
+  if (computerHand === playerHand) {
+    console.log("The game was a Draw")
+  } else if (
+    (playerHand === "rock" && computerHand === "paper") ||
+    (playerHand === "paper" && computerHand === "scissors") ||
+    (playerHand === "scissors" && computerHand === "rock")
+  ) {
+    console.log("You lose!")
+  }
+}
+
+playRound()
+
+*/
