@@ -18,9 +18,21 @@ function getComputerChoice() {
   }
 }
 
+getComputerChoice()
+
 // Function will ask player for hand
 
 function getPlayerChoice() {
   let playerHand = prompt("Please enter your hand.")
-  return playerHand
+
+  if (playerHand.toLowerCase() === "rock") {
+    return playerHand.toLowerCase()
+  } else if (playerHand.toLowerCase() === "paper") {
+    return playerHand.toLowerCase()
+  } else if (playerHand.toLowerCase() === "scissors") {
+    return playerHand.toLowerCase()
+  } else {
+    alert("Please enter a valid hand.")
+    getPlayerChoice()
+  }
 }
