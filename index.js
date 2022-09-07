@@ -18,3 +18,10 @@ function getComputerChoice() {
     console.log(computerHand)
   }
 }
+
+// Function will ask player for hand
+
+function getPlayerChoice() {
+  let playerHand = prompt("Please enter your hand.")
+  console.log(playerHand)
+}
