@@ -5,17 +5,16 @@ console.log("Hello World!")
 
 function getComputerChoice() {
   let computerHand = Math.floor(Math.random() * 3)
-  console.log(computerHand)
 
   if (computerHand === 0) {
     let computerHand = "rock"
-    console.log(computerHand)
+    return computerHand
   } else if (computerHand === 1) {
     let computerHand = "paper"
-    console.log(computerHand)
+    return computerHand
   } else if (computerHand === 2) {
     let computerHand = "scissors"
-    console.log(computerHand)
+    return computerHand
   }
 }
 
@@ -23,5 +22,5 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
   let playerHand = prompt("Please enter your hand.")
-  console.log(playerHand)
+  return playerHand
 }
