@@ -8,13 +8,13 @@ function getComputerChoice() {
   console.log(computerHand)
 
   if (computerHand === 0) {
-    let computerHand = "Rock"
+    let computerHand = "rock"
     console.log(computerHand)
   } else if (computerHand === 1) {
-    let computerHand = "Paper"
+    let computerHand = "paper"
     console.log(computerHand)
   } else if (computerHand === 2) {
-    let computerHand = "Scissors"
+    let computerHand = "scissors"
     console.log(computerHand)
   }
 }
