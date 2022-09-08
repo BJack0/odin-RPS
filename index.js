@@ -48,17 +48,77 @@ console.log("Player has chosen " + playerHand)
 
 // Function will play one round and compare hands
 
-/*
+/* FIRST BROKEN FUNCTION
 
 function playRound(computerHand, playerHand) {
-  if (computerHand === playerHand) {
-    console.log("The game was a Draw")
+  if (
+    (computerHand === "rock" && playerHand === "paper") ||
+    (computerHand === "paper" && playerHand === "scissors") ||
+    (computerHand === "scissors" && playerHand === "rock")
+  ) {
+    console.log("You Win!")
   } else if (
     (playerHand === "rock" && computerHand === "paper") ||
     (playerHand === "paper" && computerHand === "scissors") ||
     (playerHand === "scissors" && computerHand === "rock")
   ) {
     console.log("You lose!")
+  } else {
+    console.log("The game was a Draw")
+  }
+}
+
+playRound()
+
+/* SECOND BROKEN FUNCTION
+
+function playRound(computerHand, playerHand) {
+  if (computerHand === "rock" && playerHand === "paper") {
+    console.log("Player has paper you win")
+  } else if (computerHand === "paper" && playerHand === "scissors") {
+    console.log("Player has scissors you win")
+  } else if (computerHand === "scissors" && playerHand === "rock") {
+    console.log("Player has rock you win")
+  } else {
+    console.log("Game was a draw")
+  }
+}
+
+playRound()
+
+*/
+
+/* THIRD BROKEN FUNCTION LMAO
+
+function playRound(computerHand, playerHand) {
+  switch (true) {
+    case computerHand === "rock" && playerHand === "paper":
+      console.log("Player Wins!")
+      break
+
+    case computerHand === "paper" && playerHand === "scissors":
+      console.log("Player Wins!")
+      break
+
+    case computerHand === "scissors" && playerHand === "rock":
+      console.log("Player Wins!")
+      break
+
+    case playerHand === "rock" && computerHand === "paper":
+      console.log("Computer Wins!")
+      break
+
+    case playerHand === "paper" && computerHand === "scissors":
+      console.log("Computer Wins!")
+      break
+
+    case playerHand === "scissors" && computerHand === "rock":
+      console.log("Computer Wins!")
+      break
+
+    default:
+      console.log("The Game is a Draw!")
+      break
   }
 }
 
