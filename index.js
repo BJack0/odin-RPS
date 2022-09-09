@@ -125,3 +125,19 @@ function playRound(computerHand, playerHand) {
 playRound()
 
 */
+
+function playRound(computerHand, playerHand) {
+  if (playerHand === computerHand) {
+    return console.log("The game is a tie")
+  }
+  if (playerHand === "rock") {
+    console.log(computerHand === "paper" ? "You Lose!" : "You Win!")
+  }
+  if (playerHand === "paper") {
+    console.log(computerHand === "scissors" ? "You Lose!" : "You Win!")
+    if (playerHand === "scissors") {
+      console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
+    }
+  }
+}
+playRound(computerHand, playerHand)
