@@ -1,4 +1,4 @@
-console.log("Hello World!")
+console.log("Welcome to ROCK PAPER SCISSORS!")
 
 // Function returns an integer between 0 - 2
 // Function Converts integer into a playable hand
@@ -21,14 +21,12 @@ function getComputerChoice() {
   return computerHand
 }
 
-getComputerChoice()
-console.log("Computer has chosen " + computerHand)
-
 // Function will ask player for hand
 
-let playerHand = prompt("Please enter your hand.").toLowerCase()
+let playerHand
 
 function getPlayerChoice() {
+  playerHand = prompt("Please enter your hand.").toLowerCase()
   if (playerHand === "rock") {
     console.log(playerHand)
   } else if (playerHand === "paper") {
@@ -43,21 +41,51 @@ function getPlayerChoice() {
   return playerHand
 }
 
-getPlayerChoice()
-console.log("Player has chosen " + playerHand)
+// This function will play a round and compare the hands
+
+let playerScore = 0
+let computerScore = 0
 
 function playRound(computerHand, playerHand) {
   if (playerHand === computerHand) {
-    return console.log("The game is a tie")
+    console.log("The game is a tie")
   }
   if (playerHand === "rock") {
     console.log(computerHand === "paper" ? "You Lose!" : "You Win!")
+    computerHand === "paper" ? computerScore++ : playerScore++
   }
   if (playerHand === "paper") {
     console.log(computerHand === "scissors" ? "You Lose!" : "You Win!")
-    if (playerHand === "scissors") {
-      console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
-    }
+    computerHand === "scissors" ? computerScore++ : playerScore++
+  }
+  if (playerHand === "scissors") {
+    console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
+    computerHand === "rock" ? computerScore++ : playerScore++
   }
 }
-playRound(computerHand, playerHand)
+
+//This function will run all of the other functions to play a game of 5 hands
+
+let gameNumber = 0
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    gameNumber++
+    console.log("Game number - " + gameNumber)
+
+    getComputerChoice()
+    console.log("Computer has chosen " + computerHand)
+
+    getPlayerChoice()
+    console.log("Player has chosen " + playerHand)
+
+    playRound(computerHand, playerHand)
+  }
+  if (playerScore > computerScore) {
+    console.log("The Player wins the game!")
+  } else {
+    console.log("The Computer wins the game!")
+  }
+}
+
+game()
