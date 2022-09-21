@@ -1,91 +1,79 @@
-console.log("Welcome to ROCK PAPER SCISSORS!")
+console.log("Welcome to the ROCK PAPER SCISSORS console.")
 
-// Function returns an integer between 0 - 2
-// Function Converts integer into a playable hand
+// Global Scope
 
-let computerHand
+var playerScore = 0
+var computerScore = 0
+
+// Global Scope
 
 function getComputerChoice() {
   computerHand = Math.floor(Math.random() * 3)
-  console.log(computerHand)
-  if (computerHand === 0) {
-    computerHand = "rock"
-    console.log(computerHand)
-  } else if (computerHand === 1) {
-    computerHand = "paper"
-    console.log(computerHand)
-  } else if (computerHand === 2) {
-    computerHand = "scissors"
-    console.log(computerHand)
-  }
-  return computerHand
+
+  if (computerHand === 0)
+    return "rock"
+
+  if (computerHand === 1)
+    return "paper"
+
+  if (computerHand === 2)
+    return "scissors"
 }
-
-// Function will ask player for hand
-
-let playerHand
 
 function getPlayerChoice() {
   playerHand = prompt("Please enter your hand.").toLowerCase()
-  if (playerHand === "rock") {
-    console.log(playerHand)
-  } else if (playerHand === "paper") {
-    console.log(playerHand)
-  } else if (playerHand === "scissors") {
-    console.log(playerHand)
-  } else {
-    console.log(playerHand)
+
+  if (playerHand === "rock")
+    return "rock"
+
+  if (playerHand === "paper")
+    return "paper"
+
+  if (playerHand === "scissors")
+    return "scissors"
+
     alert("Please enter a valid hand.")
-    getPlayerChoice()
-  }
+  getPlayerChoice()
   return playerHand
-}
+  }
 
-// This function will play a round and compare the hands
+function playRound() {
+  let playerHand = getPlayerChoice()
+  let computerHand = getComputerChoice()
 
-let playerScore = 0
-let computerScore = 0
+  console.log("Start of the function")
+  console.log("computerHand = " + computerHand)
+  console.log("playerHand = " + playerHand)
 
-function playRound(computerHand, playerHand) {
   if (playerHand === computerHand) {
     console.log("The game is a tie")
   }
+
   if (playerHand === "rock") {
     console.log(computerHand === "paper" ? "You Lose!" : "You Win!")
     computerHand === "paper" ? computerScore++ : playerScore++
   }
+
   if (playerHand === "paper") {
     console.log(computerHand === "scissors" ? "You Lose!" : "You Win!")
     computerHand === "scissors" ? computerScore++ : playerScore++
   }
+
   if (playerHand === "scissors") {
     console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
     computerHand === "rock" ? computerScore++ : playerScore++
   }
+
+  console.log("End of the function")
 }
 
-//This function will run all of the other functions to play a game of 5 hands
+// DOM manipulation
 
-let gameNumber = 0
+const computerChoiceBtn = document.getElementById("computerChoiceBtn")
+computerChoiceBtn.addEventListener("click", getComputerChoice)
 
-function game() {
-  for (let i = 0; i < 5; i++) {
-    gameNumber++
-    console.log("Game number - " + gameNumber)
+const playerChoiceBtn = document.getElementById("playerChoiceBtn")
+playerChoiceBtn.addEventListener("click", getPlayerChoice)
 
-    getComputerChoice()
-    console.log("Computer has chosen " + computerHand)
-
-    getPlayerChoice()
-    console.log("Player has chosen " + playerHand)
-
-    playRound(computerHand, playerHand)
-  }
-  if (playerScore > computerScore) {
-    console.log("The Player wins the game!")
-  } else {
-    console.log("The Computer wins the game!")
-  }
-}
-
-game()
+const playRoundBtn = document.getElementById("playRoundBtn")
+playRoundBtn.addEventListener("click", playRound)
