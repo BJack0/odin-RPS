@@ -46,27 +46,27 @@ function playRound() {
 
   if (playerHand === computerHand) {
     console.log("The game is a tie")
-    textBox.innerText = "The game is a tie"
+    gameStatus.innerText = "The game is a tie"
     return
   }
 
   if (playerHand === "rock") {
     console.log(computerHand === "paper" ? "You Lose!" : "You Win!")
-    textBox.innerText = (computerHand === "paper" ? "You Lose!" : "You Win!")
+    gameStatus.innerText = (computerHand === "paper" ? "You Lose!" : "You Win!")
     computerHand === "paper" ? computerScore++ : playerScore++
     return
   }
 
   if (playerHand === "paper") {
     console.log(computerHand === "scissors" ? "You Lose!" : "You Win!")
-    textBox.innerText = (computerHand === "scissors" ? "You Lose!" : "You Win!")
+    gameStatus.innerText = (computerHand === "scissors" ? "You Lose!" : "You Win!")
     computerHand === "scissors" ? computerScore++ : playerScore++
     return
   }
 
   if (playerHand === "scissors") {
     console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
-    textBox.innerText = (computerHand === "rock" ? "You Lose!" : "You Win!")
+    gameStatus.innerText = (computerHand === "rock" ? "You Lose!" : "You Win!")
     computerHand === "rock" ? computerScore++ : playerScore++
     return
   }
@@ -77,4 +77,4 @@ function playRound() {
 const playRoundBtn = document.getElementById("playRoundBtn")
 playRoundBtn.addEventListener("click", playRound)
 
-let textBox = document.getElementById("textBox")
+let gameStatus = document.getElementById("gameStatus")
