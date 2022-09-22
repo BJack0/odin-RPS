@@ -41,39 +41,40 @@ function playRound() {
   let playerHand = getPlayerChoice()
   let computerHand = getComputerChoice()
 
-  console.log("Start of the function")
   console.log("computerHand = " + computerHand)
   console.log("playerHand = " + playerHand)
 
   if (playerHand === computerHand) {
     console.log("The game is a tie")
+    textBox = document.getElementById("textBox").innerText = "The game is a tie"
+    return
   }
 
   if (playerHand === "rock") {
     console.log(computerHand === "paper" ? "You Lose!" : "You Win!")
+    textBox = document.getElementById("textBox").innerText = (computerHand === "paper" ? "You Lose!" : "You Win!")
     computerHand === "paper" ? computerScore++ : playerScore++
+    return
   }
 
   if (playerHand === "paper") {
     console.log(computerHand === "scissors" ? "You Lose!" : "You Win!")
+    textBox = document.getElementById("textBox").innerText = (computerHand === "scissors" ? "You Lose!" : "You Win!")
     computerHand === "scissors" ? computerScore++ : playerScore++
+    return
   }
 
   if (playerHand === "scissors") {
     console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
+    textBox = document.getElementById("textBox").innerText = (computerHand === "rock" ? "You Lose!" : "You Win!")
     computerHand === "rock" ? computerScore++ : playerScore++
+    return
   }
-
-  console.log("End of the function")
 }
 
 // DOM manipulation
 
-const computerChoiceBtn = document.getElementById("computerChoiceBtn")
-computerChoiceBtn.addEventListener("click", getComputerChoice)
-
-const playerChoiceBtn = document.getElementById("playerChoiceBtn")
-playerChoiceBtn.addEventListener("click", getPlayerChoice)
-
 const playRoundBtn = document.getElementById("playRoundBtn")
 playRoundBtn.addEventListener("click", playRound)
+
+let textBox = document.getElementById("textBox")
