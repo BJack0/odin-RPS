@@ -4,6 +4,8 @@ console.log("Welcome to the ROCK PAPER SCISSORS console.")
 
 var playerScore = 0
 var computerScore = 0
+const computerScoreStatus = document.getElementById("computerScore")
+const playerScoreStatus = document.getElementById("playerScore")
 
 // Global Scope
 
@@ -47,6 +49,8 @@ function playRound() {
   if (playerHand === computerHand) {
     console.log("The game is a tie")
     gameStatus.innerText = "The game is a tie"
+    updateUI()
+    winnerCheck()
     return
   }
 
@@ -54,6 +58,8 @@ function playRound() {
     console.log(computerHand === "paper" ? "You Lose!" : "You Win!")
     gameStatus.innerText = (computerHand === "paper" ? "You Lose!" : "You Win!")
     computerHand === "paper" ? computerScore++ : playerScore++
+    updateUI()
+    winnerCheck()
     return
   }
 
@@ -61,6 +67,8 @@ function playRound() {
     console.log(computerHand === "scissors" ? "You Lose!" : "You Win!")
     gameStatus.innerText = (computerHand === "scissors" ? "You Lose!" : "You Win!")
     computerHand === "scissors" ? computerScore++ : playerScore++
+    updateUI()
+    winnerCheck()
     return
   }
 
@@ -68,7 +76,24 @@ function playRound() {
     console.log(computerHand === "rock" ? "You Lose!" : "You Win!")
     gameStatus.innerText = (computerHand === "rock" ? "You Lose!" : "You Win!")
     computerHand === "rock" ? computerScore++ : playerScore++
+    updateUI()
+    winnerCheck()
     return
+  }
+}
+
+function updateUI() {
+  computerScoreStatus.textContent = (`Computer Score : ${computerScore}`)
+  playerScoreStatus.textContent = (`Player Score : ${playerScore}`)
+}
+
+function winnerCheck() {
+  if (playerScore === 5) {
+    gameStatus.innerText = "The Player wins the game!"
+  }
+
+  if (computerScore === 5) {
+    gameStatus.innerText = "The Computer wins the game!"
   }
 }
 
@@ -77,4 +102,4 @@ function playRound() {
 const playRoundBtn = document.getElementById("playRoundBtn")
 playRoundBtn.addEventListener("click", playRound)
 
-let gameStatus = document.getElementById("gameStatus")
+const gameStatus = document.getElementById("gameStatus")
