@@ -23,7 +23,9 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-  playerHand = prompt("Please enter your hand.").toLowerCase()
+  playerHand = prompt("Please enter your hand.").toLowerCase().trim()
+
+  console.log(playerHand)
 
   if (playerHand === "rock")
     return "rock"
